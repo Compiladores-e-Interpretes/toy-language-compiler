@@ -52,6 +52,11 @@ STRING  \"(\\.|[^"\\])*\"
 "false"         { yylval.b_val = 0; return BOOL_LITERAL; }
 "'"."'"         { yylval.c_val = yytext[1]; return CHAR_LITERAL; }
 
+{DIGIT}*\.{DIGIT}+|{DIGIT}+\.   {
+    yylval.d_val = atof(yytext);
+    return DOUBLE_LITERAL;
+}
+
 {DIGIT} {
     yylval.n_val = atof(yytext);
     return NUMBER;

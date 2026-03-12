@@ -1,3 +1,4 @@
+var: [double] test_double = 10.5;
 
 var:  [int] test_int = 2;
 
